@@ -1,0 +1,81 @@
+<% content_for :title, "Menu | Cozy Cafe — Pastries & Light Meals" %>
+<% content_for :meta_description, "Explore the Cozy Cafe menu in Cadillac, MI — pastries, bakery favorites, sandwiches, burgers, and more." %>
+
+<section class="page-hero">
+  <div class="container" data-reveal>
+    <p class="eyebrow">OUR MENU</p>
+    <h1 class="page-hero__title">Food &amp; Drink to Settle Into</h1>
+    <p class="page-hero__text">
+      From freshly baked pastries to satisfying savory plates — browse what’s cooking at Cozy Cafe.
+    </p>
+  </div>
+</section>
+
+<section class="section section--cream" data-controller="menu-tabs">
+  <div class="container">
+    <div class="menu-tabs" role="tablist" aria-label="Menu categories" data-reveal>
+      <button
+        type="button"
+        class="menu-tabs__btn is-active"
+        role="tab"
+        aria-selected="true"
+        data-menu-tabs-target="tab"
+        data-action="menu-tabs#select"
+        data-menu-tabs-category-param="pastries">
+        Pastries &amp; Bakery
+      </button>
+      <button
+        type="button"
+        class="menu-tabs__btn"
+        role="tab"
+        aria-selected="false"
+        data-menu-tabs-target="tab"
+        data-action="menu-tabs#select"
+        data-menu-tabs-category-param="savory">
+        Savory / Light Meals
+      </button>
+    </div>
+
+    <div
+      class="menu-panel"
+      role="tabpanel"
+      data-menu-tabs-target="panel"
+      data-category="pastries"
+      data-reveal>
+      <h2 class="section-title">Pastries &amp; Bakery</h2>
+      <ul class="menu-list">
+        <% ApplicationHelper::MENU_PASTRIES.each do |item| %>
+          <li class="menu-list__item">
+            <span class="menu-list__name"><%= item[:name] %></span>
+            <span class="menu-list__rule" aria-hidden="true"></span>
+            <span class="menu-list__price"><%= item[:price] %></span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div
+      class="menu-panel"
+      role="tabpanel"
+      data-menu-tabs-target="panel"
+      data-category="savory"
+      hidden
+      data-reveal>
+      <h2 class="section-title">Savory / Light Meals</h2>
+      <ul class="menu-list">
+        <% ApplicationHelper::MENU_SAVORY.each do |item| %>
+          <li class="menu-list__item">
+            <span class="menu-list__name"><%= item[:name] %></span>
+            <span class="menu-list__rule" aria-hidden="true"></span>
+            <span class="menu-list__price"><%= item[:price] %></span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="menu-note" data-reveal>
+      <p>Prices shown as provided. Ask our team about daily specials and drink pairings when you visit.</p>
+      <%= link_to "Order / Visit Us", contact_path, class: "btn btn--accent" %>
+    </div>
+  </div>
+</section>

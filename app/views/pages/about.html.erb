@@ -1,0 +1,59 @@
+<% content_for :title, "About | Cozy Cafe — Cadillac, MI" %>
+<% content_for :meta_description, "Learn about Cozy Cafe in Cadillac, MI — a welcoming neighborhood café for coffee, food, and good company." %>
+
+<section class="page-hero">
+  <div class="container" data-reveal>
+    <p class="eyebrow">ABOUT US</p>
+    <h1 class="page-hero__title">A Cozy Space for Great Food &amp; Company</h1>
+    <p class="page-hero__text">
+      Coffee, breakfast, lunch, pastries, and a comfortable place to slow down — right here in Cadillac.
+    </p>
+  </div>
+</section>
+
+<section class="about-split about-split--page">
+  <div class="about-split__media" data-reveal>
+    <img
+      src="<%= cafe_image(:about) %>"
+      alt="Cozy Cafe interior seating area"
+      loading="lazy"
+      width="1400"
+      height="1000">
+  </div>
+  <div class="about-split__content" data-reveal>
+    <h2 class="section-title">Our Story</h2>
+    <p class="section-text">
+      Cozy Cafe is a welcoming neighborhood café created for good coffee, delicious food and meaningful moments. Whether you're starting your morning, catching up with friends, working remotely, or simply taking a break, our space is designed to feel comfortable and inviting.
+    </p>
+    <p class="section-text">
+      We believe a great café should feel like a second living room — warm lighting, friendly service, and food that makes you want to stay a little longer.
+    </p>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="container values">
+    <div class="section-header" data-reveal>
+      <h2 class="section-title">What We Believe In</h2>
+      <p class="section-text">Simple values that shape every cup and every visit.</p>
+    </div>
+    <div class="values__grid">
+      <article class="value-card" data-reveal>
+        <h3>Fresh Ingredients</h3>
+        <p>Quality in every bite — from morning pastries to savory plates.</p>
+      </article>
+      <article class="value-card" data-reveal>
+        <h3>Customer Satisfaction</h3>
+        <p>Our priority is making every guest feel welcome and cared for.</p>
+      </article>
+      <article class="value-card" data-reveal>
+        <h3>Locally Loved</h3>
+        <p>A neighborhood café for students, families, workers, and visitors.</p>
+      </article>
+    </div>
+    <div class="section-actions" data-reveal>
+      <%= link_to "View Our Menu", menu_path, class: "btn btn--primary" %>
+      <%= link_to "Visit Us", contact_path, class: "btn btn--outline" %>
+    </div>
+  </div>
+</section>

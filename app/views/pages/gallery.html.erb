@@ -1,0 +1,35 @@
+<% content_for :title, "Gallery | Moments at Cozy Cafe" %>
+<% content_for :meta_description, "Browse moments from Cozy Cafe in Cadillac, MI — coffee, food, interiors, and cozy seating." %>
+
+<section class="page-hero">
+  <div class="container" data-reveal>
+    <p class="eyebrow">GALLERY</p>
+    <h1 class="page-hero__title">Moments at Cozy Cafe</h1>
+    <p class="page-hero__text">
+      Take a look at some of our favorite moments, delicious food, and cozy café spaces.
+    </p>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container gallery-page">
+    <div class="gallery-masonry">
+      <% ApplicationHelper::IMAGES[:gallery].each_with_index do |src, index| %>
+        <button
+          type="button"
+          class="gallery-thumb <%= index.odd? ? 'gallery-thumb--tall' : '' %>"
+          data-reveal
+          data-action="lightbox#open"
+          data-lightbox-src-param="<%= src %>"
+          data-lightbox-alt-param="Gallery image <%= index + 1 %> from Cozy Cafe">
+          <img
+            src="<%= src %>"
+            alt="Gallery image <%= index + 1 %> from Cozy Cafe"
+            loading="lazy"
+            width="900"
+            height="<%= index.odd? ? 1100 : 700 %>">
+        </button>
+      <% end %>
+    </div>
+  </div>
+</section>

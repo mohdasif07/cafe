@@ -1,0 +1,206 @@
+<% content_for :title, "Cozy Cafe | Coffee, Food & Cozy Atmosphere in Cadillac, MI" %>
+<% content_for :meta_description, ApplicationHelper::DEFAULT_DESCRIPTION %>
+
+<section class="hero">
+  <div class="hero__media" aria-hidden="true">
+    <img
+      src="<%= cafe_image(:hero) %>"
+      alt=""
+      class="hero__image"
+      width="1920"
+      height="1080"
+      fetchpriority="high">
+    <div class="hero__overlay"></div>
+  </div>
+
+  <div class="container hero__content" data-reveal>
+    <p class="eyebrow eyebrow--light">GOOD FOOD • GREAT COFFEE • BETTER DAYS</p>
+    <h1 class="hero__title">More Than Just a Cup of Coffee</h1>
+    <p class="hero__support">Your Cozy Place for Coffee, Food &amp; Good Vibes</p>
+    <p class="hero__text">
+      Freshly brewed coffee, delicious food, and a cozy atmosphere — a welcoming place to relax, work, meet friends, and enjoy something delicious.
+    </p>
+    <div class="hero__actions">
+      <%= link_to menu_path, class: "btn btn--accent" do %>
+        View Our Menu
+        <span aria-hidden="true">→</span>
+      <% end %>
+      <%= link_to "Visit Us", contact_path, class: "btn btn--ghost" %>
+    </div>
+  </div>
+</section>
+
+<section class="features" aria-label="Why visit Cozy Cafe">
+  <div class="container features__grid">
+    <article class="feature" data-reveal>
+      <span class="feature__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none"><path d="M12 18h18c2 0 4 2 4 4.5V24c0 6-4.5 11-10.5 11H18C12 35 8 30 8 24v-1.5C8 20 10 18 12 18Z" stroke="currentColor" stroke-width="1.7"/><path d="M34 21c2.8.5 4.8 2.4 4.8 4.8S36.8 30 34 30.5M18 12c.6-1.6 1.5-2.6 2.6-3M23 11c.7-1.8 1.7-3 3-3.5M28 12c.5-1.3 1.2-2.3 2.2-2.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </span>
+      <h2 class="feature__title">Fresh Coffee</h2>
+      <p class="feature__text">Premium quality beans</p>
+    </article>
+    <article class="feature" data-reveal>
+      <span class="feature__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none"><path d="M14 34l6-18 4 8 4-12 6 22M12 38h24" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <h2 class="feature__title">Delicious Food</h2>
+      <p class="feature__text">Breakfast, lunch &amp; more</p>
+    </article>
+    <article class="feature" data-reveal>
+      <span class="feature__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none"><path d="M10 20c7.5-7.5 20.5-7.5 28 0M15 25.5c5-5 13-5 18 0M20.5 31c2.4-2.4 4.6-2.4 7 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="24" cy="36" r="1.8" fill="currentColor"/></svg>
+      </span>
+      <h2 class="feature__title">Free Wi-Fi</h2>
+      <p class="feature__text">Work, study, relax</p>
+    </article>
+    <article class="feature" data-reveal>
+      <span class="feature__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none"><circle cx="18" cy="16" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="30" cy="16" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M10 34c1.5-5 4.8-7.5 8-7.5s6.5 2.5 8 7.5M22 34c1.5-5 4.8-7.5 8-7.5s6.5 2.5 8 7.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </span>
+      <h2 class="feature__title">Cozy Atmosphere</h2>
+      <p class="feature__text">A comfortable place for everyone</p>
+    </article>
+  </div>
+</section>
+
+<section class="section section--cream popular">
+  <div class="container popular__layout">
+    <div class="popular__intro" data-reveal>
+      <p class="eyebrow">OUR MENU</p>
+      <h2 class="section-title">Popular Picks</h2>
+      <p class="section-text">
+        From freshly brewed coffee to satisfying meals and sweet treats, there's something for everyone at Cozy Cafe.
+      </p>
+      <%= link_to "View Full Menu", menu_path, class: "btn btn--primary" %>
+    </div>
+
+    <div class="popular__grid">
+      <% ApplicationHelper::POPULAR_PICKS.each do |item| %>
+        <article class="menu-card" data-reveal>
+          <div class="menu-card__media">
+            <img
+              src="<%= cafe_image(item[:image]) %>"
+              alt="<%= item[:alt] %>"
+              loading="lazy"
+              width="800"
+              height="600">
+          </div>
+          <div class="menu-card__body">
+            <h3 class="menu-card__title"><%= item[:name] %></h3>
+            <p class="menu-card__desc"><%= item[:description] %></p>
+            <div class="menu-card__meta">
+              <span class="menu-card__price"><%= item[:price] %></span>
+              <%= link_to "View Menu", menu_path, class: "menu-card__link" %>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="about-split">
+  <div class="about-split__media" data-reveal>
+    <img
+      src="<%= cafe_image(:about) %>"
+      alt="Warm interior of Cozy Cafe with wooden tables and ambient lighting"
+      loading="lazy"
+      width="1400"
+      height="1000">
+  </div>
+  <div class="about-split__content" data-reveal>
+    <p class="eyebrow">ABOUT US</p>
+    <h2 class="section-title">A Cozy Space for Great Food &amp; Company</h2>
+    <p class="section-text">
+      Cozy Cafe is a welcoming neighborhood café created for good coffee, delicious food and meaningful moments. Whether you're starting your morning, catching up with friends, working remotely, or simply taking a break, our space is designed to feel comfortable and inviting.
+    </p>
+    <%= link_to "Learn More", about_path, class: "btn btn--primary" %>
+    <ul class="highlight-list">
+      <li>
+        <span class="highlight-list__icon" aria-hidden="true">✦</span>
+        <div>
+          <strong>Fresh Ingredients</strong>
+          <span>Quality in every bite</span>
+        </div>
+      </li>
+      <li>
+        <span class="highlight-list__icon" aria-hidden="true">♥</span>
+        <div>
+          <strong>Customer Satisfaction</strong>
+          <span>Our priority</span>
+        </div>
+      </li>
+      <li>
+        <span class="highlight-list__icon" aria-hidden="true">★</span>
+        <div>
+          <strong>Locally Loved</strong>
+          <span>A welcoming neighborhood café</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--dark gallery-teaser">
+  <div class="container gallery-teaser__layout">
+    <div class="gallery-teaser__intro" data-reveal>
+      <h2 class="section-title section-title--light">Moments at Cozy Cafe</h2>
+      <p class="section-text section-text--muted">
+        Take a look at some of our favorite moments, delicious food, and cozy café spaces.
+      </p>
+      <%= link_to "View More Photos", gallery_path, class: "btn btn--ghost" %>
+    </div>
+    <div class="gallery-teaser__grid">
+      <% ApplicationHelper::IMAGES[:gallery].first(4).each_with_index do |src, index| %>
+        <button
+          type="button"
+          class="gallery-thumb"
+          data-reveal
+          data-action="lightbox#open"
+          data-lightbox-src-param="<%= src %>"
+          data-lightbox-alt-param="Café moment <%= index + 1 %> at Cozy Cafe">
+          <img src="<%= src %>" alt="Café moment <%= index + 1 %> at Cozy Cafe" loading="lazy" width="900" height="700">
+        </button>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream testimonials">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <h2 class="section-title">What Our Customers Say</h2>
+      <p class="section-text">Sample placeholder testimonials — replace with real reviews when available.</p>
+    </div>
+    <div class="testimonials__grid">
+      <blockquote class="testimonial-card" data-reveal>
+        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>“Such a cozy place with great coffee and a relaxing atmosphere. Perfect for spending an afternoon.”</p>
+        <footer>— Sarah L.</footer>
+      </blockquote>
+      <blockquote class="testimonial-card" data-reveal>
+        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>“Great food, friendly service and a really comfortable environment.”</p>
+        <footer>— Mike T.</footer>
+      </blockquote>
+      <blockquote class="testimonial-card" data-reveal>
+        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>“Perfect spot to meet friends or get some work done over a cup of coffee.”</p>
+        <footer>— Emily R.</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="container cta-band__inner" data-reveal>
+    <h2 class="section-title section-title--light">Visit Cozy Cafe</h2>
+    <p class="section-text section-text--muted">
+      <%= ApplicationHelper::SITE_FULL_ADDRESS %> · <%= ApplicationHelper::SITE_PHONE %>
+    </p>
+    <div class="hero__actions">
+      <%= link_to "View Our Menu", menu_path, class: "btn btn--accent" %>
+      <%= link_to "Contact Us", contact_path, class: "btn btn--ghost" %>
+    </div>
+  </div>
+</section>

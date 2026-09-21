@@ -1,0 +1,50 @@
+<header class="site-header" data-nav-target="header">
+  <div class="site-header__inner">
+    <%= link_to root_path, class: "brand", aria: { label: "Cozy Cafe home" } do %>
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 16h16c1.5 0 3 1.4 3 3.2v1.6c0 5.2-3.8 9.2-9 9.2h-1c-5.2 0-9-4-9-9.2v-1.6c0-1.8 1.5-3.2 3-3.2Z" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M29 18.5c2.2.4 3.8 2 3.8 4s-1.6 3.5-3.8 3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M16 11c.4-1.2 1-2 1.8-2.4M20 10.5c.5-1.4 1.2-2.3 2.2-2.7M24 11c.3-1 0.8-1.8 1.6-2.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand__text">
+        <span class="brand__name">COZY CAFE</span>
+        <span class="brand__tagline">COFFEE • FOOD • GOOD VIBES</span>
+      </span>
+    <% end %>
+
+    <nav class="site-nav" data-nav-target="menu" aria-label="Primary">
+      <%= nav_link_to "Home", root_path %>
+      <%= nav_link_to "About", about_path %>
+      <%= nav_link_to "Menu", menu_path %>
+      <%= nav_link_to "Gallery", gallery_path %>
+      <%= nav_link_to "Contact", contact_path %>
+    </nav>
+
+    <div class="site-header__actions">
+      <%= link_to "Order Now", menu_path, class: "btn btn--accent btn--sm site-header__cta" %>
+      <button
+        type="button"
+        class="nav-toggle"
+        data-nav-target="toggle"
+        data-action="nav#toggle"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-nav" class="mobile-nav" data-nav-target="mobile" hidden>
+    <nav class="mobile-nav__links" aria-label="Mobile">
+      <%= nav_link_to "Home", root_path %>
+      <%= nav_link_to "About", about_path %>
+      <%= nav_link_to "Menu", menu_path %>
+      <%= nav_link_to "Gallery", gallery_path %>
+      <%= nav_link_to "Contact", contact_path %>
+      <%= link_to "Order Now", menu_path, class: "btn btn--accent" %>
+    </nav>
+  </div>
+</header>
